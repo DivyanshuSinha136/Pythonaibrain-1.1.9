@@ -1,0 +1,456 @@
+{
+    "title": "AI Memory Pattern Summarization Report",
+    "cluster_summaries": [
+        {
+            "cluster_id": 0,
+            "dominant_intent": "humor",
+            "response_types": {
+                "joke": 1,
+                "generic_reply": 1
+            },
+            "pattern_count": 2,
+            "representative_inputs": [
+                "ok proccedd",
+                "tell me a joke"
+            ],
+            "representative_responses": [
+                "Got it!",
+                "What do you call a parrot that says \"Squawk! Pieces of nine! Pieces of nine!\"? A parrot-ey error."
+            ],
+            "key_tokens": [
+                "tell",
+                "joke",
+                "proccedd"
+            ],
+            "coherence_score": 0.9999,
+            "description": "Cluster #0 groups joke and humor requests (2 patterns). Users trigger these with words like [tell, joke, proccedd]. High semantic coherence."
+        },
+        {
+            "cluster_id": 1,
+            "dominant_intent": "humor",
+            "response_types": {
+                "generic_reply": 3,
+                "open_action": 1
+            },
+            "pattern_count": 4,
+            "representative_inputs": [
+                "thanks",
+                "tell a jock",
+                "Who created you?"
+            ],
+            "representative_responses": [
+                "Any time!",
+                "Child: Dad, why does the sun rise in the east and set in the west? Dad: Son, it's working, don't touch it.",
+                "I'm powered by PythonAIBrain, an open-source AI framework."
+            ],
+            "key_tokens": [
+                "tell",
+                "jock",
+                "thanks",
+                "who",
+                "created",
+                "you",
+                "about",
+                "python"
+            ],
+            "coherence_score": 0.9999,
+            "description": "Cluster #1 groups joke and humor requests (4 patterns). Users trigger these with words like [tell, jock, thanks, who, created]. High semantic coherence."
+        },
+        {
+            "cluster_id": 2,
+            "dominant_intent": "acknowledgment",
+            "response_types": {
+                "greeting": 2,
+                "farewell": 1,
+                "generic_reply": 1
+            },
+            "pattern_count": 4,
+            "representative_inputs": [
+                "hi",
+                "ok",
+                "bye"
+            ],
+            "representative_responses": [
+                "Hello! How can I help you today?",
+                "Got it!",
+                "Bye! Have a great day!"
+            ],
+            "key_tokens": [
+                "bye",
+                "greate"
+            ],
+            "coherence_score": 0.9999,
+            "description": "Cluster #2 groups acknowledgment and affirmation patterns (4 patterns). Short confirmatory inputs like [bye, greate]."
+        },
+        {
+            "cluster_id": 3,
+            "dominant_intent": "greeting",
+            "response_types": {
+                "processing": 1,
+                "generic_reply": 2,
+                "joke": 1,
+                "greeting": 2
+            },
+            "pattern_count": 6,
+            "representative_inputs": [
+                "start",
+                "greate",
+                "yo bro"
+            ],
+            "representative_responses": [
+                "Wait a moment!",
+                "Hey! Ready to help.",
+                "Hey! Ready to help."
+            ],
+            "key_tokens": [
+                "start",
+                "who",
+                "created",
+                "what",
+                "your",
+                "age",
+                "another",
+                "one"
+            ],
+            "coherence_score": 0.9999,
+            "description": "This cluster (#3) handles greeting and opening exchanges. It contains 6 patterns where users initiate conversation. Key signals: [start, who, created, what, your]. Coherence is high."
+        },
+        {
+            "cluster_id": 4,
+            "dominant_intent": "greeting",
+            "response_types": {
+                "generic_reply": 4,
+                "open_action": 1
+            },
+            "pattern_count": 5,
+            "representative_inputs": [
+                "name",
+                "who are u?",
+                "Who is your founder"
+            ],
+            "representative_responses": [
+                "I'm an AI assistant here to help you.",
+                "I'm your AI assistant, powered by PythonAIBrain!",
+                "['OPEN', 'Who is your founder']"
+            ],
+            "key_tokens": [
+                "your",
+                "name",
+                "who",
+                "what",
+                "are",
+                "dear",
+                "founder",
+                "brother"
+            ],
+            "coherence_score": 1.0,
+            "description": "This cluster (#4) handles greeting and opening exchanges. It contains 5 patterns where users initiate conversation. Key signals: [your, name, who, what, are]. Coherence is high."
+        },
+        {
+            "cluster_id": 5,
+            "dominant_intent": "greeting",
+            "response_types": {
+                "greeting": 4,
+                "info": 1,
+                "generic_reply": 1
+            },
+            "pattern_count": 6,
+            "representative_inputs": [
+                "cbse",
+                "jock",
+                "hello"
+            ],
+            "representative_responses": [
+                "Hi! What can I do for you?",
+                "Hello! What would you like to know?",
+                "Hello! What would you like to know?"
+            ],
+            "key_tokens": [
+                "hello",
+                "cbse",
+                "what",
+                "can",
+                "jock",
+                "hey",
+                "tell",
+                "joke"
+            ],
+            "coherence_score": 1.0,
+            "description": "This cluster (#5) handles greeting and opening exchanges. It contains 6 patterns where users initiate conversation. Key signals: [hello, cbse, what, can, jock]. Coherence is high."
+        },
+        {
+            "cluster_id": 6,
+            "dominant_intent": "command_trigger",
+            "response_types": {
+                "command": 3
+            },
+            "pattern_count": 3,
+            "representative_inputs": [
+                "start cmd",
+                "Start Cmd.",
+                "start cmd."
+            ],
+            "representative_responses": [
+                "Done: cmd_start",
+                "Done: cmd_start",
+                "Done: cmd_start"
+            ],
+            "key_tokens": [
+                "start",
+                "cmd"
+            ],
+            "coherence_score": 1.0,
+            "description": "Cluster #6 handles command invocation patterns (3 patterns). These map user phrases to system actions. Tokens: [start, cmd]."
+        },
+        {
+            "cluster_id": 7,
+            "dominant_intent": "humor",
+            "response_types": {
+                "joke": 1,
+                "error": 1
+            },
+            "pattern_count": 2,
+            "representative_inputs": [
+                "Aw! don't get blush",
+                "tell me a funny joke"
+            ],
+            "representative_responses": [
+                "[Error] HTTPSConnectionPool...",
+                "Apparently my password needs to be capitals only so I've changed it to LONDONMADRIDROME"
+            ],
+            "key_tokens": [
+                "tell",
+                "funny",
+                "joke",
+                "don",
+                "get",
+                "blush"
+            ],
+            "coherence_score": 0.9999,
+            "description": "Cluster #7 groups joke and humor requests (2 patterns). Users trigger these with words like [tell, funny, joke, don, get]. High semantic coherence."
+        },
+        {
+            "cluster_id": 8,
+            "dominant_intent": "knowledge_query",
+            "response_types": {
+                "open_action": 2,
+                "generic_reply": 1
+            },
+            "pattern_count": 3,
+            "representative_inputs": [
+                "what is the time?",
+                "What is Pythonaibrain",
+                "What is Pythonaibrain?"
+            ],
+            "representative_responses": [
+                "I'll check the time for you!",
+                "['OPEN', 'What is Pythonaibrain']",
+                "['OPEN', 'What is Pythonaibrain?']"
+            ],
+            "key_tokens": [
+                "what",
+                "pythonaibrain",
+                "the",
+                "time"
+            ],
+            "coherence_score": 1.0,
+            "description": "Cluster #8 contains knowledge and information requests (3 patterns). Users ask about topics via [what, pythonaibrain, the, time]. Response type: open_action."
+        },
+        {
+            "cluster_id": 9,
+            "dominant_intent": "command_trigger",
+            "response_types": {
+                "processing": 1,
+                "farewell": 2
+            },
+            "pattern_count": 3,
+            "representative_inputs": [
+                "cmd",
+                "ok! bye",
+                "another one"
+            ],
+            "representative_responses": [
+                "Wait a moment!",
+                "Goodbye! Come back anytime.",
+                "Goodbye! Come back anytime."
+            ],
+            "key_tokens": [
+                "cmd",
+                "another",
+                "one",
+                "bye"
+            ],
+            "coherence_score": 1.0,
+            "description": "Cluster #9 handles command invocation patterns (3 patterns). These map user phrases to system actions. Tokens: [cmd, another, one, bye]."
+        },
+        {
+            "cluster_id": 10,
+            "dominant_intent": "knowledge_query",
+            "response_types": {
+                "error": 1
+            },
+            "pattern_count": 1,
+            "representative_inputs": [
+                "what is python"
+            ],
+            "representative_responses": [
+                "Error: 'NoneType' object is not subscriptable"
+            ],
+            "key_tokens": [
+                "what",
+                "python"
+            ],
+            "coherence_score": 1.0,
+            "description": "Cluster #10 contains knowledge and information requests (1 patterns). Users ask about topics via [what, python]. Response type: error."
+        },
+        {
+            "cluster_id": 11,
+            "dominant_intent": "humor",
+            "response_types": {
+                "greeting": 2,
+                "joke": 1,
+                "generic_reply": 3
+            },
+            "pattern_count": 6,
+            "representative_inputs": [
+                "0",
+                "joke",
+                "well done"
+            ],
+            "representative_responses": [
+                "Hi! What can I do for you?",
+                "One person's error is another person's data.",
+                "You're making me blush — if AIs could blush!"
+            ],
+            "key_tokens": [
+                "joke",
+                "tell",
+                "another",
+                "pythonaibrain",
+                "well",
+                "done",
+                "greate",
+                "hear"
+            ],
+            "coherence_score": 0.9999,
+            "description": "Cluster #11 groups joke and humor requests (6 patterns). Users trigger these with words like [joke, tell, another, pythonaibrain, well]. High semantic coherence."
+        }
+    ],
+    "system_stats": {
+        "total_patterns": 45,
+        "unique_intents": [
+            "command_trigger",
+            "greeting",
+            "farewell",
+            "knowledge_query",
+            "humor",
+            "identity_query",
+            "general",
+            "acknowledgment"
+        ],
+        "intent_distribution": {
+            "greeting": 9,
+            "farewell": 2,
+            "general": 5,
+            "command_trigger": 5,
+            "humor": 8,
+            "identity_query": 3,
+            "acknowledgment": 7,
+            "knowledge_query": 6
+        },
+        "response_type_distribution": {
+            "greeting": 10,
+            "farewell": 3,
+            "command": 3,
+            "processing": 2,
+            "joke": 4,
+            "generic_reply": 16,
+            "info": 1,
+            "open_action": 4,
+            "error": 2
+        },
+        "error_count": 2,
+        "command_count": 3,
+        "open_action_count": 4,
+        "avg_input_length": 11.6,
+        "n_clusters": 12,
+        "autoencoder_final_loss": 0.001101
+    },
+    "recommendations": [
+        "⚠️  2 error pattern(s) detected (network/API failures). Consider adding graceful fallback responses for offline scenarios.",
+        "📉  3 cluster(s) have ≤2 patterns. Expand these clusters with additional input variations for robustness.",
+        "🔗  4 patterns trigger external 'OPEN' actions. Verify these external links/documents are still accessible.",
+        "🗂️  High cluster count detected. Consider consolidating similar intents for a leaner memory footprint."
+    ],
+    "raw_cluster_map": {
+        "2": [
+            "hi",
+            "bye",
+            "ok",
+            "oh! greate."
+        ],
+        "5": [
+            "hello",
+            "cbse",
+            "what u can do",
+            "jock",
+            "hey hi!",
+            "tell me a joke."
+        ],
+        "6": [
+            "start cmd",
+            "Start Cmd.",
+            "start cmd."
+        ],
+        "3": [
+            "start",
+            "who created u?!",
+            "what is your age?",
+            "another one joke.",
+            "greate",
+            "yo bro"
+        ],
+        "9": [
+            "cmd",
+            "another one",
+            "ok! bye"
+        ],
+        "11": [
+            "0",
+            "tell me another joke",
+            "joke",
+            "Pythonaibrain.",
+            "well done",
+            "Greate to hear that."
+        ],
+        "7": [
+            "tell me a funny joke",
+            "Aw! don't get blush"
+        ],
+        "4": [
+            "who are u?",
+            "what's your name dear?",
+            "Who is your founder",
+            "name",
+            "brother what's your name?"
+        ],
+        "0": [
+            "tell me a joke",
+            "ok proccedd"
+        ],
+        "1": [
+            "tell a jock",
+            "thanks",
+            "Who created you?",
+            "tell me about Python."
+        ],
+        "8": [
+            "What is Pythonaibrain?",
+            "What is Pythonaibrain",
+            "what is the time?"
+        ],
+        "10": [
+            "what is python"
+        ]
+    }
+}
