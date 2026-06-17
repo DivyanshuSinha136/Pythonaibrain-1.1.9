@@ -1,0 +1,513 @@
+[build-system]
+requires      = ["setuptools>=72.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+# =============================================================================
+# Project metadata  (PEP 621)
+# =============================================================================
+
+[project]
+name            = "pythonaibrain"
+version         = "1.1.9"
+description     = "A versatile, plug-and-play Python AI toolkit for building offline intelligent assistants."
+readme          = "README.md"
+requires-python = ">=3.9"
+authors         = [
+    { name = "Divyanshu Sinha", email = "divyanshu.sinha631@gmail.com" },
+]
+license = { text = "LGPL-3.0-or-later" }
+# NOTE: pyaitk.CLSE is separately licensed under AGPL-3.0-or-later.
+#       See pyaitk/CLSE/LICENSE.txt for details.
+
+keywords = [
+    "ai", "artificial-intelligence", "assistant",
+    "tts", "stt", "speech", "nlp", "nlp-library",
+    "text-to-speech", "speech-to-text",
+    "object-detection", "computer-vision",
+    "named-entity-recognition", "ner",
+    "image-generation", "offline-ai",
+    "math-ai", "summarizer", "memory",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Multimedia :: Sound/Audio :: Speech",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+# =============================================================================
+# Runtime dependencies  (always installed with: pip install pythonaibrain)
+# =============================================================================
+
+dependencies = [
+    "requests>=2.28.0",       # Search, weather, Brain
+    "numpy>=1.24.0",          # used by almost every module
+    "python-dotenv>=1.0.0",   # .env loading in Brain / STT / config
+    "psutil>=5.9.0",          # system resource queries in Brain
+]
+
+# =============================================================================
+# Optional dependency groups
+# =============================================================================
+# Install a group:   pip install "pythonaibrain[tts]"
+# Install all:       pip install "pythonaibrain[all]"
+
+[project.optional-dependencies]
+
+# -----------------------------------------------------------------------------
+# core — Brain, AdvanceBrain, IntentsManager, VectorizerMode, get_weather
+#   Source: pyaitk/core.py, pyaitk/config.py, pyaitk/Search.py
+# -----------------------------------------------------------------------------
+# Post-install:
+#   python -c "import pyaitk; pyaitk.InstallNLTKData()"
+#   python -m spacy download en_core_web_sm          # optional, better NLP
+core = [
+    "scikit-learn>=1.3.0",
+    "torch>=2.0.0",
+    "nltk>=3.8.0",
+    "gensim>=4.3.0",        # optional vectoriser — skipped gracefully if absent
+    "scipy>=1.11.0",        # sparse-matrix support in AdvanceBrain
+    "pandas>=2.0.0",        # data pipeline in SummarizerAI core
+    "pyjokes>=0.6.0",       # joke responses in Brain
+]
+
+# -----------------------------------------------------------------------------
+# tts — Text-to-Speech
+#   Source: pyaitk/TTS/
+# -----------------------------------------------------------------------------
+tts = [
+    "pyttsx3>=2.90",
+]
+
+# -----------------------------------------------------------------------------
+# stt — Speech-to-Text
+#   Source: pyaitk/STT/
+#
+# Linux system dependency (required before pip install):
+#   sudo apt install portaudio19-dev python3-pyaudio
+#
+# Offline engine — pocketsphinx (optional):
+#   pip install pocketsphinx
+# -----------------------------------------------------------------------------
+stt = [
+    "SpeechRecognition>=3.10.0",
+    "pyaudio>=0.2.13",
+    # "pocketsphinx>=5.0.0",   # uncomment for fully offline STT
+]
+
+# -----------------------------------------------------------------------------
+# camera — Camera capture, finger counting, QR / barcode
+#   Source: pyaitk/Camera/
+#
+# Linux system dependency:
+#   sudo apt install libzbar0
+# -----------------------------------------------------------------------------
+camera = [
+    "opencv-python>=4.8.0",
+    "Pillow>=10.0.0",
+    "pyzbar>=0.1.9",        # QR / barcode decoding
+]
+
+# -----------------------------------------------------------------------------
+# itt — Image-to-Text (OCR)
+#   Source: pyaitk/ITT/
+#
+# EasyOCR downloads model weights (~100 MB) on first use.
+# Internet is required for the initial download; subsequent runs are offline.
+# -----------------------------------------------------------------------------
+itt = [
+    "easyocr>=1.7.0",
+    "Pillow>=10.0.0",
+]
+
+# -----------------------------------------------------------------------------
+# context — Context-based question answering
+#   Source: pyaitk/Grammar/  (ContextAI)
+# -----------------------------------------------------------------------------
+context = [
+    "nltk>=3.8.0",
+    "scikit-learn>=1.3.0",
+]
+
+# -----------------------------------------------------------------------------
+# ner — Named-Entity Recognition pipeline
+#   Source: pyaitk/NER/
+#
+# Post-install:
+#   python -m spacy download en_core_web_sm
+#   python -m nltk.downloader punkt averaged_perceptron_tagger
+# -----------------------------------------------------------------------------
+ner = [
+    "spacy>=3.7.0",
+    "torch>=2.0.0",
+    "scikit-learn>=1.3.0",
+    "tokenizers>=0.15.0",
+    "nltk>=3.8.0",
+]
+
+# -----------------------------------------------------------------------------
+# memory — Long/short-term memory management
+#   Source: pyaitk/Memory.py
+# -----------------------------------------------------------------------------
+memory = [
+    "scikit-learn>=1.3.0",
+    "torch>=2.0.0",
+    "scipy>=1.11.0",
+]
+
+# -----------------------------------------------------------------------------
+# math — Mathematical AI + CAS
+#   Source: pyaitk/MathAI/  and  pyaitk/MathAI/pythonaibrain_cas/
+# -----------------------------------------------------------------------------
+math = [
+    "sympy>=1.12",
+]
+
+# -----------------------------------------------------------------------------
+# search — Internet search + Wikipedia
+#   Source: pyaitk/Search.py
+# -----------------------------------------------------------------------------
+search = [
+    "beautifulsoup4>=4.12.0",
+    "wikipedia>=1.4.0",
+]
+
+# -----------------------------------------------------------------------------
+# pptx — PowerPoint text extraction
+#   Source: pyaitk/PPTExtract/
+# -----------------------------------------------------------------------------
+pptx = [
+    "python-pptx>=0.6.23",
+]
+
+# -----------------------------------------------------------------------------
+# pdf — PDF text extraction
+#   Source: pyaitk/PPTExtract/__init__.py  (fitz / PyMuPDF)
+# -----------------------------------------------------------------------------
+pdf = [
+    "PyMuPDF>=1.23.0",      # imported as `fitz`
+]
+
+# -----------------------------------------------------------------------------
+# eye — Real-time object detection (YOLOv8)
+#   Source: pyaitk/eye/
+#   Bundled model: pyaitk/eye/yolov8n.pt
+# -----------------------------------------------------------------------------
+eye = [
+    "opencv-python>=4.8.0",
+    "Pillow>=10.0.0",
+    "ultralytics>=8.0.0",   # YOLOv8 — also downloads weights on first use
+    "customtkinter>=5.2.0", # DetectionApp GUI
+]
+
+# -----------------------------------------------------------------------------
+# summarizer — Memory-aware text summarisation
+#   Source: pyaitk/SummarizerAI/
+#           pyaitk/SummarizerAI/core/  (clustering, data_pipeline)
+#           pyaitk/SummarizerAI/models/  (autoencoder)
+# -----------------------------------------------------------------------------
+summarizer = [
+    "scikit-learn>=1.3.0",
+    "torch>=2.0.0",
+    "nltk>=3.8.0",
+    "scipy>=1.11.0",
+    "pandas>=2.0.0",
+]
+
+# -----------------------------------------------------------------------------
+# clse — Compositional Latent Synthesis Engine (image generation)
+#   Source: pyaitk/CLSE/CLSE/
+#   Bundled model: pyaitk/CLSE/CLSE/tti_models/
+#
+# !! LICENSE: AGPL-3.0-or-later  (see pyaitk/CLSE/LICENSE.txt) !!
+# Users of this component must comply with AGPL-3.0-or-later terms.
+#
+# Post-install (optional, better NLP accuracy):
+#   python -m spacy download en_core_web_sm
+#   python -m nltk.downloader punkt averaged_perceptron_tagger stopwords
+# -----------------------------------------------------------------------------
+clse = [
+    "torch>=2.0.0",
+    "Pillow>=10.0.0",
+    "scikit-learn>=1.3.0",
+    "nltk>=3.8.0",
+    "scipy>=1.11.0",
+]
+
+# -----------------------------------------------------------------------------
+# all — everything except dev/docs (useful for CI and full environments)
+# -----------------------------------------------------------------------------
+all = [
+    "pythonaibrain[core,tts,stt,camera,itt,context,ner,memory,math,search,pptx,pdf,eye,summarizer,clse]",
+]
+
+# -----------------------------------------------------------------------------
+# dev — contributor / CI toolchain
+# -----------------------------------------------------------------------------
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "black>=24.0.0",
+    "ruff>=0.4.0",
+    "mypy>=1.8.0",
+    "pre-commit>=3.6.0",
+    "twine>=5.0.0",
+    "build>=1.1.0",
+]
+
+# -----------------------------------------------------------------------------
+# docs — documentation build
+# -----------------------------------------------------------------------------
+docs = [
+    "sphinx>=7.2.0",
+    "furo>=2024.1.29",
+    "sphinx-autodoc-typehints>=1.25.0",
+    "myst-parser>=2.0.0",
+]
+
+# -----------------------------------------------------------------------------
+# zentraa — ZENTRAA encrypted chat server + clients
+#   Source: PyAgent/
+#
+#   Installs four CLI commands (see [project.scripts]):
+#     zentraa-server    →  PyAgent/server.py     --host / --port / --config
+#     zentraa-client    →  PyAgent/client.py     --host / --port / --userid / --config
+#     zentraa-tiger-ai  →  PyAgent/clientAI.py   --host / --port / --smart / --basic / --config
+#     zentraa-web       →  PyAgent/http_server.py --http-port / --tcp-host / --tcp-port
+#
+# Linux system dep (PortAudio, required by pyaudio / STT inside TIGER AI):
+#   sudo apt install portaudio19-dev python3-pyaudio
+# -----------------------------------------------------------------------------
+zentraa = [
+    "rich>=13.7.0",               # TUI banners & panels (server, client, clientAI)
+    "cryptography>=42.0.0",       # RSA-2048-OAEP + AES-256-GCM crypto layer
+    "fastapi>=0.111.0",           # HTTP/WebSocket bridge  (http_server.py)
+    "uvicorn[standard]>=0.29.0",  # ASGI runner for the bridge
+    "python-multipart>=0.0.9",    # /api/upload multipart form parsing
+    "aiofiles>=23.2.0",           # async file I/O in the bridge
+    "colorama>=0.4.6",            # cross-platform ANSI colour in the bridge banner
+    "pythonaibrain[core]",        # Brain / AdvanceBrain — used by TIGER AI client
+]
+
+# =============================================================================
+# Entry points / console scripts
+# =============================================================================
+#
+# Top-level dispatcher (routes sub-commands):
+#   pythonaibrain [option] [command]
+#   pyaitk        [option] [command]
+#
+# ZENTRAA sub-commands (also available as standalone aliases):
+#
+#   pythonaibrain zentraa server
+#       → zentraa-server [--config ZENTRAA.pbcfg] [--host HOST] [--port PORT]
+#
+#   pythonaibrain zentraa client
+#       → zentraa-client [--config ZENTRAA.pbcfg] [--host HOST] [--port PORT]
+#                        [--userid USERID]
+#
+#   pythonaibrain zentraa ai
+#       → zentraa-tiger-ai [--config ZENTRAA.pbcfg] [--host HOST] [--port PORT]
+#                           [--smart | --basic]
+#
+#   pythonaibrain zentraa web
+#       → zentraa-web [--http-port PORT] [--tcp-host HOST] [--tcp-port PORT]
+#                     [--no-auto-port] [--max-upload-mb MB]
+#                     [--history N] [--ping-interval SECS]
+
+[project.scripts]
+# ── Top-level dispatcher ─────────────────────────────────────────────────────
+pythonaibrain    = "pyaitk.__main__:main"
+pyaitk           = "pyaitk.__main__:main"
+
+# ── ZENTRAA standalone aliases ────────────────────────────────────────────────
+zentraa-server   = "PyAgent.server:main"
+zentraa-client   = "PyAgent.client:main"
+zentraa-tiger-ai = "PyAgent.clientAI:main"
+zentraa-web      = "PyAgent.http_server:main"
+
+# =============================================================================
+# Project URLs
+# =============================================================================
+
+[project.urls]
+Homepage      = "https://pythonaibrain.readthedocs.io"
+Documentation = "https://pythonaibrain.readthedocs.io"
+Repository    = "https://github.com/Pythonaibrain/pythonaibrain"
+"Bug Tracker" = "https://github.com/Pythonaibrain/pythonaibrain/issues"
+Changelog     = "https://github.com/Pythonaibrain/pythonaibrain/blob/main/CHANGELOG.md"
+
+# =============================================================================
+# Package discovery
+# =============================================================================
+#
+# Layout (from tree):
+#   pyaitk/                          ← main package  (import pyaitk)
+#   pyaitk/Camera/                   ← subpackage
+#   pyaitk/CLSE/                     ← subpackage
+#   pyaitk/CLSE/CLSE/                ← inner subpackage (double-nested)
+#   pyaitk/eye/                      ← subpackage
+#   pyaitk/Grammar/                  ← subpackage  (ContextAI lives here)
+#   pyaitk/ITT/                      ← subpackage
+#   pyaitk/MathAI/                   ← subpackage
+#   pyaitk/MathAI/pythonaibrain_cas/ ← CAS engine (deep nested)
+#   pyaitk/Memory.py                 ← module (not a subpackage)
+#   pyaitk/NER/                      ← subpackage
+#   pyaitk/PPTExtract/               ← subpackage
+#   pyaitk/PTT/                      ← subpackage
+#   pyaitk/STT/                      ← subpackage
+#   pyaitk/SummarizerAI/             ← subpackage
+#   pyaitk/SummarizerAI/core/        ← nested subpackage
+#   pyaitk/SummarizerAI/models/      ← nested subpackage
+#   pyaitk/TTS/                      ← subpackage
+#   pyaitk/pytest/                   ← test stub (excluded from dist)
+#
+#   PyAgent/                         ← standalone ZENTRAA server app
+#                                       NOT part of the installable library
+#                                       excluded from distribution
+
+[tool.setuptools.packages.find]
+where   = ["."]
+include = [
+    "pyaitk*",   # main library
+    "PyAgent*",  # ZENTRAA server app — needed for zentraa-* entry points
+]
+exclude = [
+    "pyaitk.pytest*",   # internal test stub — not for distribution
+]
+
+# Data files bundled with the package
+[tool.setuptools.package-data]
+"pyaitk" = [
+    "py.typed",              # PEP 561 marker
+    "*.json",                # intents.json, dimensions.json
+    "*.pbcfg",               # config.pbcfg
+    "*.md",                  # README-*.md files
+    "*.pth",                 # model.pth  (Brain model)
+    "eye/*.pt",              # yolov8n.pt  (bundled YOLO weights)
+    "CLSE/CLSE/tti_models/*.pt",       # best_model.pt
+    "CLSE/CLSE/tti_models/*.jsonl",    # metrics.jsonl
+    "CLSE/CLSE/tti_models/*.json",     # model_config.json, training_*.json
+    "CLSE/LICENSE.txt",      # AGPL license for CLSE
+    "Grammar/intents.json",  # Grammar intents
+    "NER/*.json",            # NER data files
+]
+
+"PyAgent" = [
+    "*.pbcfg",              # ZENTRAA.pbcfg, config.pbcfg
+    "*.md",                 # README.md
+    "static/*.html",        # web client HTML files
+    # NOTE: .env and *.pem key files are intentionally excluded from the
+    #       wheel — users must generate their own keys and config locally.
+]
+
+# =============================================================================
+# Tool configuration
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Black
+# -----------------------------------------------------------------------------
+[tool.black]
+line-length    = 99
+target-version = ["py39", "py310", "py311", "py312"]
+
+# -----------------------------------------------------------------------------
+# Ruff  (linter + import sorter)
+# -----------------------------------------------------------------------------
+[tool.ruff]
+line-length    = 99
+target-version = "py39"
+
+[tool.ruff.lint]
+select = [
+    "E",    # pycodestyle errors
+    "W",    # pycodestyle warnings
+    "F",    # pyflakes
+    "I",    # isort
+    "B",    # flake8-bugbear
+    "UP",   # pyupgrade
+    "C4",   # flake8-comprehensions
+    "SIM",  # flake8-simplify
+]
+ignore = [
+    "E501",  # line length — handled by Black
+    "B008",  # function calls in default arguments
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["pyaitk"]
+
+# -----------------------------------------------------------------------------
+# Mypy
+# -----------------------------------------------------------------------------
+[tool.mypy]
+python_version         = "3.9"
+strict                 = true
+warn_return_any        = true
+warn_unused_ignores    = true
+disallow_untyped_defs  = true
+ignore_missing_imports = true   # third-party stubs may be absent
+
+# Per-module overrides for subpackages that use heavy dynamic typing
+[[tool.mypy.overrides]]
+module = [
+    "pyaitk.CLSE.*",
+    "pyaitk.eye.*",
+    "pyaitk.NER.*",
+    "pyaitk.SummarizerAI.*",
+]
+disallow_untyped_defs = false
+ignore_errors         = false
+
+# -----------------------------------------------------------------------------
+# Pytest
+# -----------------------------------------------------------------------------
+[tool.pytest.ini_options]
+testpaths = ["pyaitk/pytest", "tests"]
+addopts   = "-ra -q --tb=short"
+filterwarnings = [
+    "error",
+    "ignore::DeprecationWarning",
+    "ignore::ImportWarning",
+    "ignore::ResourceWarning",
+]
+
+# -----------------------------------------------------------------------------
+# Coverage
+# -----------------------------------------------------------------------------
+[tool.coverage.run]
+source = ["pyaitk"]
+branch = true
+omit   = [
+    "pyaitk/pytest/*",
+    "pyaitk/__main__.py",
+    "pyaitk/setup_wizard.py",
+    "PyAgent/*",
+    "**/test_*.py",
+    "**/demo.py",
+]
+
+[tool.coverage.report]
+show_missing  = true
+skip_covered  = false
+fail_under    = 60
+exclude_lines = [
+    "pragma: no cover",
+    "if TYPE_CHECKING:",
+    "raise NotImplementedError",
+    "@(abc\\.)?abstractmethod",
+    "if __name__ == .__main__.:",
+]
