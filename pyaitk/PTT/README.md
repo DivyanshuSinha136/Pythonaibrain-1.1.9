@@ -33,7 +33,7 @@ pip install PyMuPDF
 ### 1. Basic extraction
 
 ```python
-from pdf import extract_text_from_pdf
+from PTT import extract_text_from_pdf
 
 text = extract_text_from_pdf("document.pdf")
 print(text)
@@ -55,7 +55,7 @@ text = extract_text_from_pdf("document.pdf", encoding="latin-1")
 ### 4. With error handling
 
 ```python
-from pdf import extract_text_from_pdf, PDFExtractionError
+from PTT import extract_text_from_pdf, PDFExtractionError
 
 try:
     text = extract_text_from_pdf("document.pdf")
@@ -72,7 +72,7 @@ except PDFExtractionError as e:
 
 ```python
 from pathlib import Path
-from pdf import extract_text_from_pdf, PDFExtractionError
+from PTT import extract_text_from_pdf, PDFExtractionError
 
 results = {}
 for pdf_path in Path("./docs").glob("*.pdf"):
@@ -167,7 +167,7 @@ This report covers the key findings from Q3 2024...
 
 ```python
 # Minimal usage
-from pdf import extract_text_from_pdf
+from PTT import extract_text_from_pdf
 text = extract_text_from_pdf("file.pdf")
 
 # Custom separator between pages
