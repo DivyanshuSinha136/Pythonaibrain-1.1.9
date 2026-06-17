@@ -567,7 +567,7 @@ A fully offline, cross-platform Text-to-Speech module built on the `pyttsx3` bac
 #### 1. One-shot (simplest)
 
 ```python
-from pyaitk.tts import TTS
+from pyaitk.TTS import TTS
 
 TTS().say("Hello, world!")
 ```
@@ -577,7 +577,7 @@ TTS().say("Hello, world!")
 The engine is initialised once and shut down cleanly on exit — even if an exception is raised.
 
 ```python
-from pyaitk.tts import TTS, TTSConfig
+from pyaitk.TTS import TTS, TTSConfig
 
 with TTS(TTSConfig(voice="zira", rate=160)) as tts:
     tts.say("Hello!")
@@ -587,7 +587,7 @@ with TTS(TTSConfig(voice="zira", rate=160)) as tts:
 #### 3. Module-level convenience function
 
 ```python
-from pyaitk.tts import speak
+from pyaitk.TTS import speak
 
 speak("Hello world!")
 speak("Bonjour", voice="fiona", rate=140)
@@ -596,7 +596,7 @@ speak("Bonjour", voice="fiona", rate=140)
 #### 4. Save speech to a WAV file
 
 ```python
-from pyaitk.tts import TTS, TTSConfig
+from pyaitk.TTS import TTS, TTSConfig
 
 cfg = TTSConfig(output_path="greeting.wav")
 with TTS(cfg) as tts:
@@ -614,7 +614,7 @@ with TTS() as tts:
 #### 5. List available voices
 
 ```python
-from pyaitk.tts import TTS
+from pyaitk.TTS import TTS
 
 with TTS() as tts:
     for name in tts.available_voices():
@@ -624,7 +624,7 @@ with TTS() as tts:
 #### 6. Get platform-appropriate voice hints
 
 ```python
-from pyaitk.tts import TTS
+from pyaitk.TTS import TTS
 
 with TTS() as tts:
     print(tts.platform_voice_hints())
@@ -684,11 +684,11 @@ Voices are resolved from a short fragment string using a ranked strategy:
 
 ```python
 # Quickest usage
-from pyaitk.tts import speak
+from pyaitk.TTS import speak
 speak("Hello!")
 
 # Full control with context manager
-from pyaitk.tts import TTS, TTSConfig
+from pyaitk.TTS import TTS, TTSConfig
 with TTS(TTSConfig(voice="david", rate=175, volume=0.9)) as tts:
     tts.say("Line one.")
     tts.say("Line two.")
@@ -875,7 +875,7 @@ STTError
 Example error handling:
 
 ```python
-from pyaitk.stt import STT, STTAudioError, STTRecognitionError, STTServiceError, STTEngineError
+from pyaitk.STT import STT, STTAudioError, STTRecognitionError, STTServiceError, STTEngineError
 
 try:
     with STT() as stt:
@@ -897,18 +897,18 @@ except STTEngineError as e:
 
 ```python
 # Quickest usage
-from pyaitk.stt import STT
+from pyaitk.STT import STT
 text = STT().listen()
 
 # Context manager with config
-from pyaitk.stt import STT, STTConfig, Engine
+from pyaitk.STT import STT, STTConfig, Engine
 cfg = STTConfig(preferred_engine=Engine.GOOGLE, google_language="fr-FR", timeout=6.0)
 with STT(config=cfg) as stt:
     text = stt.listen()
     print(text)
 
 # Resilient loop with error recovery
-from pyaitk.stt import STT, STTAudioError, STTRecognitionError
+from pyaitk.STT import STT, STTAudioError, STTRecognitionError
 with STT() as stt:
     while True:
         try:
@@ -940,7 +940,7 @@ with STT() as stt:
 #### 1. Basic extraction
 
 ```python
-from pyaitk.ptt import extract_text_from_pdf
+from pyaitk.PTT import extract_text_from_pdf
 
 text = extract_text_from_pdf("document.pdf")
 print(text)
@@ -962,7 +962,7 @@ text = extract_text_from_pdf("document.pdf", encoding="latin-1")
 #### 4. With error handling
 
 ```python
-from pyaitk.ptt import extract_text_from_pdf, PDFExtractionError
+from pyaitk.PTT import extract_text_from_pdf, PDFExtractionError
 
 try:
     text = extract_text_from_pdf("document.pdf")
@@ -979,7 +979,7 @@ except PDFExtractionError as e:
 
 ```python
 from pathlib import Path
-from pyaitk.ptt import extract_text_from_pdf, PDFExtractionError
+from pyaitk.PTT import extract_text_from_pdf, PDFExtractionError
 
 results = {}
 for pdf_path in Path("./docs").glob("*.pdf"):
@@ -1041,14 +1041,14 @@ PDFExtractionError
 
 ```python
 # Minimal usage
-from pyaitk.ptt import extract_text_from_pdf
+from pyaitk.PTT import extract_text_from_pdf
 text = extract_text_from_pdf("file.pdf")
 
 # Custom separator between pages
 text = extract_text_from_pdf("file.pdf", page_separator="\n--- PAGE BREAK ---\n")
 
 # Full error handling
-from pyaitk.ptt import extract_text_from_pdf, PDFExtractionError
+from pyaitk.PTT import extract_text_from_pdf, PDFExtractionError
 try:
     text = extract_text_from_pdf("file.pdf")
 except FileNotFoundError:
@@ -1058,7 +1058,7 @@ except PDFExtractionError as e:
 
 # Batch processing a folder
 from pathlib import Path
-from pyaitk.ptt import extract_text_from_pdf, PDFExtractionError
+from pyaitk.PTT import extract_text_from_pdf, PDFExtractionError
 for f in Path("./docs").glob("*.pdf"):
     try:
         print(f"{f.name}: {len(extract_text_from_pdf(str(f)))} chars")
@@ -1660,7 +1660,7 @@ A robust symbolic mathematics solver built on SymPy, supporting simplification, 
 #### 1. One-liner convenience function (simplest)
 
 ```python
-from pyaitk.mathai import MathAI
+from pyaitk.MathAI import MathAI
 
 print(MathAI("x^2 + 2*x + 1"))
 print(MathAI("x^2 - 4 = 0", operation="solve"))
@@ -1678,7 +1678,7 @@ The `MathAI()` function (and `MathSolver.process()`) detect the operation from t
 - Anything else → simplify
 
 ```python
-from pyaitk.mathai import MathAI
+from pyaitk.MathAI import MathAI
 
 print(MathAI("x^2 - 9 = 0"))                         # → solve
 print(MathAI("Matrix([[2, 1], [5, 3]])"))             # → matrix
