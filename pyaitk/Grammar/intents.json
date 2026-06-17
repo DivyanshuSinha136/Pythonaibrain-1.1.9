@@ -1,0 +1,112 @@
+{
+  "intents": [
+
+    {
+      "tag": "capitalisation",
+      "examples": [
+        { "incorrect": "i am going to the store",       "correct": "I am going to the store" },
+        { "incorrect": "i think this is correct",       "correct": "I think this is correct" },
+        { "incorrect": "hi my name is john",            "correct": "Hi my name is John" },
+        { "incorrect": "hello, i wanted to ask you",    "correct": "Hello, I wanted to ask you" },
+        { "incorrect": "yes, i agree with you",         "correct": "Yes, I agree with you" }
+      ]
+    },
+
+    {
+      "tag": "subject_verb_agreement",
+      "examples": [
+        { "incorrect": "she go to the market",          "correct": "she goes to the market" },
+        { "incorrect": "he go home every day",          "correct": "he goes home every day" },
+        { "incorrect": "it go very fast",               "correct": "it goes very fast" },
+        { "incorrect": "she have a red car",            "correct": "she has a red car" },
+        { "incorrect": "he have two brothers",          "correct": "he has two brothers" },
+        { "incorrect": "the dog have a bone",           "correct": "the dog has a bone" },
+        { "incorrect": "she do not like it",            "correct": "she does not like it" },
+        { "incorrect": "he do his homework",            "correct": "he does his homework" },
+        { "incorrect": "the machine work well",         "correct": "the machine works well" },
+        { "incorrect": "my friend want to come",        "correct": "my friend wants to come" }
+      ]
+    },
+
+    {
+      "tag": "confused_words",
+      "examples": [
+        { "incorrect": "i want to here more about this","correct": "I want to hear more about this" },
+        { "incorrect": "your welcome",                  "correct": "you're welcome" },
+        { "incorrect": "their going to the park",       "correct": "they're going to the park" },
+        { "incorrect": "its a good day",                "correct": "it's a good day" },
+        { "incorrect": "i can loose weight easily",     "correct": "I can lose weight easily" },
+        { "incorrect": "the weather effects my mood",   "correct": "the weather affects my mood" },
+        { "incorrect": "i should of done it",           "correct": "I should have done it" },
+        { "incorrect": "there car is broken",           "correct": "their car is broken" },
+        { "incorrect": "she past the test",             "correct": "she passed the test" }
+      ]
+    },
+
+    {
+      "tag": "tense_errors",
+      "examples": [
+        { "incorrect": "yesterday i go to school",      "correct": "yesterday I went to school" },
+        { "incorrect": "she walk to the store yesterday","correct": "she walked to the store yesterday" },
+        { "incorrect": "he eat lunch an hour ago",      "correct": "he ate lunch an hour ago" },
+        { "incorrect": "i see him last week",           "correct": "I saw him last week" },
+        { "incorrect": "they finish the work yesterday","correct": "they finished the work yesterday" }
+      ]
+    },
+
+    {
+      "tag": "article_errors",
+      "examples": [
+        { "incorrect": "she is a honest person",        "correct": "she is an honest person" },
+        { "incorrect": "he bought a umbrella",          "correct": "he bought an umbrella" },
+        { "incorrect": "i saw a elephant at the zoo",   "correct": "I saw an elephant at the zoo" },
+        { "incorrect": "it is a honour to meet you",    "correct": "it is an honour to meet you" },
+        { "incorrect": "she ate a apple",               "correct": "she ate an apple" }
+      ]
+    },
+
+    {
+      "tag": "punctuation",
+      "examples": [
+        { "incorrect": "thanks i appreciate it",        "correct": "Thanks, I appreciate it" },
+        { "incorrect": "well i think you are right",    "correct": "Well, I think you are right" },
+        { "incorrect": "yes i can do it",               "correct": "Yes, I can do it" },
+        { "incorrect": "no i do not want that",         "correct": "No, I do not want that" },
+        { "incorrect": "hello how are you",             "correct": "Hello, how are you" }
+      ]
+    },
+
+    {
+      "tag": "double_negatives",
+      "examples": [
+        { "incorrect": "i don't need no help",          "correct": "I don't need any help" },
+        { "incorrect": "she didn't do nothing",         "correct": "she didn't do anything" },
+        { "incorrect": "he can't find nobody",          "correct": "he can't find anybody" },
+        { "incorrect": "we don't have no time",         "correct": "we don't have any time" }
+      ]
+    },
+
+    {
+      "tag": "preposition_errors",
+      "examples": [
+        { "incorrect": "she is married with him",       "correct": "she is married to him" },
+        { "incorrect": "i am good in english",          "correct": "I am good at English" },
+        { "incorrect": "he arrived to the station",     "correct": "he arrived at the station" },
+        { "incorrect": "we discussed about the plan",   "correct": "we discussed the plan" },
+        { "incorrect": "she depends of her parents",    "correct": "she depends on her parents" }
+      ]
+    },
+
+    {
+      "tag": "spelling",
+      "examples": [
+        { "incorrect": "i recieved your message",       "correct": "I received your message" },
+        { "incorrect": "she beleives in herself",       "correct": "she believes in herself" },
+        { "incorrect": "the goverment made a decision", "correct": "the government made a decision" },
+        { "incorrect": "it was a wierd experience",     "correct": "it was a weird experience" },
+        { "incorrect": "he made a concious effort",     "correct": "he made a conscious effort" }
+      ]
+    }
+
+  ]
+}
