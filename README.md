@@ -1,4 +1,4 @@
-![Pythonaibrain](https://raw.githubusercontent.com/DivyanshuSinha136/TIGER-All-Photos/main/TIGER-Photos/pythonaibrain.png)
+![Pythonaibrain](https://github.com/DivyanshuSinha136/Pythonaibrain-1.1.9/blob/main/Pythonaibrain-Logo.png)
 
 # Pythonaibrain
 
