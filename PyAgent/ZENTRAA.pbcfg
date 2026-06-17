@@ -1,0 +1,160 @@
+# ╔══════════════════════════════════════════════════════════════════════════════╗
+# ║          ZENTRAA.pbcfg — Zone for Encrypted Networked Talks &                ║
+# ║                Real-time AI Agent  •  Configuration File                     ║
+# ╠══════════════════════════════════════════════════════════════════════════════╣
+# ║  Powered By        : Pythonaibrain                                           ║
+# ║  Author            : Divyanshu Sinha                                         ║
+# ║  Version           : 1.0.0                                                   ║
+# ║  Pythonaibrain Ver : 1.1.9                                                   ║
+# ║  AI Name           : TIGER AI (Tactical Intelligent Generative Expert        ║
+# ║                      Responser/Responder AI)                                 ║
+# ╚══════════════════════════════════════════════════════════════════════════════╝
+#
+# Edit this file to configure ZENTRAA without touching source code.
+# All sections and keys are described inline.
+# Lines beginning with # are comments and are ignored.
+
+# ─────────────────────────────────────────────────────────────────────────────
+# [network]  —  TCP transport settings
+# ─────────────────────────────────────────────────────────────────────────────
+[network]
+host = 0.0.0.0
+port = 9999
+# Maximum simultaneous client connections (set to 0 for unlimited)
+max_connections = 100
+# TCP socket backlog
+backlog = 10
+# Socket read/write timeout in seconds (0 = no timeout)
+socket_timeout = 30
+# Reconnect delay in seconds for client
+reconnect_delay = 3
+# Max reconnect attempts (0 = infinite)
+max_reconnect_attempts = 5
+
+# ─────────────────────────────────────────────────────────────────────────────
+# [encryption]  —  Cryptographic parameters
+# ─────────────────────────────────────────────────────────────────────────────
+[encryption]
+# RSA key size in bits (2048 recommended for production)
+rsa_key_bits = 2048
+# AES key size in bytes (32 = AES-256)
+aes_key_bytes = 32
+# AES-GCM nonce size in bytes
+aes_nonce_bytes = 12
+# AES-GCM tag size in bytes
+aes_tag_bytes = 16
+# Curve25519 key exchange enabled
+curve25519_enabled = true
+# RSA-PSS signature salt length (-1 = max)
+rsa_pss_salt_length = -1
+# RSA-PSS hash algorithm
+rsa_pss_hash = sha256
+# OAEP hash algorithm
+rsa_oaep_hash = sha256
+# Session key rotation interval in messages (0 = never rotate)
+session_key_rotation = 500
+
+# ─────────────────────────────────────────────────────────────────────────────
+# [server]  —  Server behaviour
+# ─────────────────────────────────────────────────────────────────────────────
+[server]
+# Directory to store server RSA keypair (PEM files)
+keys_dir = .zentraa_keys
+# Server RSA private key filename
+server_private_key = server_private.pem
+# Server RSA public key filename
+server_public_key = server_public.pem
+# Log level: DEBUG | INFO | WARNING | ERROR | CRITICAL
+log_level = INFO
+# Log file path (empty = stdout only)
+log_file = zentraa_server.log
+# Broadcast join/leave notifications to all clients
+broadcast_presence = true
+# Maximum message size in bytes (1 MB default)
+max_message_size = 1048576
+# Ping interval in seconds to detect dead clients
+ping_interval = 15
+# User ID minimum length
+userid_min_length = 3
+# User ID maximum length
+userid_max_length = 24
+# Allowed characters in user ID (regex character class)
+userid_chars = a-zA-Z0-9_-
+
+# ─────────────────────────────────────────────────────────────────────────────
+# [client]  —  Client behaviour
+# ─────────────────────────────────────────────────────────────────────────────
+[client]
+# Default server host (can be overridden at runtime)
+default_host = 127.0.0.1
+# Default server port
+default_port = 9999
+# Show timestamps in message display
+show_timestamps = true
+# Timestamp format (strftime)
+timestamp_format = %H:%M:%S
+# Terminal theme: dark | light
+theme = dark
+# Enable desktop notifications (if supported)
+notifications = true
+# Message history size in memory
+history_size = 500
+# Auto-clear screen on /clear or /cls
+auto_scroll = true
+
+# ─────────────────────────────────────────────────────────────────────────────
+# [ai]  —  TIGER AI settings
+# ─────────────────────────────────────────────────────────────────────────────
+[ai]
+# TIGER AI user ID on the network
+ai_userid = TIGER_AI
+# Display name shown in chat
+ai_display_name = TIGER AI
+# SmartAI mode (uses AdvanceBrain LLM if true, Brain if false)
+smart_ai = false
+# Intents file path for Brain fallback
+intents_path = intents.json
+# Memory file path
+memory_path = tiger_memory.json
+# Memory fit interval (messages between re-fits)
+memory_fit_interval = 100
+# AI response prefix shown in chat
+ai_prefix = [TIGER AI]
+# Max response length in characters (0 = unlimited)
+max_response_length = 1024
+# Typing simulation delay per character (seconds, 0 = instant)
+typing_delay = 0.02
+# Grammar correction enabled
+grammar_correction = true
+# TTS enabled
+tts = false
+# Vectorizer mode: bow | tfidf | gensim
+vectorizer_mode = genism
+# AI join message
+join_message = TIGER AI has entered the zone. Type @ai <message> to talk to me.
+# AI leave message
+leave_message = TIGER AI has left the zone.
+
+# ─────────────────────────────────────────────────────────────────────────────
+# [logging]  —  Pythonaibrain logging passthrough
+# ─────────────────────────────────────────────────────────────────────────────
+[logging]
+level = WARNING
+format = %(asctime)s [%(levelname)s] %(name)s - %(message)s
+
+# ─────────────────────────────────────────────────────────────────────────────
+# [ui]  —  Rich TUI visual settings
+# ─────────────────────────────────────────────────────────────────────────────
+[ui]
+# App banner style: full | compact | none
+banner_style = full
+# Message panel border style: rounded | heavy | double | ascii
+border_style = rounded
+# Color scheme: cyber | matrix | ocean | ember (ignored in light theme)
+color_scheme = cyber
+# Show user list panel
+show_user_list = true
+# Show encryption status indicator
+show_encryption_status = true
+# Spinner style: dots | line | arc | clock
+spinner_style = dots

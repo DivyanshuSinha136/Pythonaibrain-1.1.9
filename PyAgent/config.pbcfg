@@ -1,0 +1,15 @@
+; PythonAIBrain configuration file
+; Place this file next to your script (or in a parent directory).
+; core.py auto-discovers it on import.
+; Override programmatically: import pythonaibrain.core as c; c.configure('my.pbcfg')
+; Inline comments start with ';'
+
+; Core Brain / AdvanceBrain settings
+[brain]
+intents_path = .\intents.json
+condition = true
+smart_memory = true
+memory_path = memory.json
+memory_fit_interval = 20
+username = user_name
+download = false
