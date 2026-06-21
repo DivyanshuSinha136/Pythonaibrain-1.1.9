@@ -1,4 +1,5 @@
 ![Pythonaibrain](https://github.com/DivyanshuSinha136/Pythonaibrain-1.1.9/blob/main/Pythonaibrain-Logo.png)
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/pythonaibrain?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=GREEN&left_text=downloads)](https://pepy.tech/projects/pythonaibrain)
 
 # Pythonaibrain
 
